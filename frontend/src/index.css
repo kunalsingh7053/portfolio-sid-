@@ -1,1 +1,80 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	color-scheme: dark;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'Inter', system-ui, -apple-system, sans-serif;
+	background: #050915;
+	color: #e5e7eb;
+	min-height: 100vh;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}
+
+#root {
+	min-height: 100vh;
+}
+
+.gradient-bg {
+	background: radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.18), transparent 25%),
+		radial-gradient(circle at 80% 10%, rgba(14, 165, 233, 0.18), transparent 22%),
+		radial-gradient(circle at 50% 70%, rgba(16, 185, 129, 0.14), transparent 28%),
+		#050915;
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+	backdrop-filter: blur(16px);
+}
+
+.noise {
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22%3E%3Cfilter id=%22n%22 x=%22-20%22 y=%22-20%22 width=%2280%22 height=%2280%22 filterUnits=%22userSpaceOnUse%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%2240%22 height=%2240%22 filter=%22url(%23n)%22 opacity=%220.08%22/%3E%3C/svg%3E');
+	z-index: 2;
+}
+
+.cursor-dot,
+.cursor-ring {
+	position: fixed;
+	border-radius: 9999px;
+	pointer-events: none;
+	z-index: 50;
+	transition: transform 120ms ease, background-color 200ms ease, border-color 200ms ease;
+}
+
+.cursor-dot {
+	width: 10px;
+	height: 10px;
+	background: #7dd3fc;
+}
+
+.cursor-ring {
+	width: 32px;
+	height: 32px;
+	border: 1px solid rgba(125, 211, 252, 0.7);
+	box-shadow: 0 0 25px rgba(125, 211, 252, 0.35);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
