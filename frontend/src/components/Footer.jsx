@@ -13,11 +13,11 @@ const Footer = () => {
         <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
           <Button href="/contact" variant="primary">Book a session</Button>
           <motion.a
-            href="mailto:hello@siddharth.studio"
+            href="mailto:siddharthbagora@gmail.com"
             className="text-sm font-semibold text-neutral-900 underline-offset-4 hover:underline"
             whileHover={{ x: 2 }}
           >
-            hello@siddharth.studio
+            siddharthbagora@gmail.com
           </motion.a>
         </div>
       </div>
@@ -25,11 +25,15 @@ const Footer = () => {
         <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-5 py-5 text-xs text-neutral-500 sm:flex-row sm:px-6">
           <p>© 2026 Siddharth Bagora. All rights reserved.</p>
           <div className="flex items-center gap-4">
-            {['Instagram', 'Behance', 'LinkedIn'].map(label => (
-              <a key={label} href="#" className="hover:text-neutral-900 transition-colors" aria-label={label}>
-                {label}
-              </a>
-            ))}
+            <a href="https://www.instagram.com/sid.bagora" className="hover:text-neutral-900 transition-colors" aria-label="Instagram">
+              Instagram
+            </a>
+            <a href="https://www.linkedin.com/in/siddharth-bagora-3aaba0270" className="hover:text-neutral-900 transition-colors" aria-label="LinkedIn">
+              LinkedIn
+            </a>
+            <a href="https://wa.me/918269629303" className="hover:text-neutral-900 transition-colors" aria-label="WhatsApp">
+              WhatsApp
+            </a>
           </div>
         </div>
       </div>

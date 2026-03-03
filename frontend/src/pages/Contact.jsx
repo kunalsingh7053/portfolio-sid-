@@ -4,9 +4,9 @@ import Button from '../components/Button'
 import SectionWrapper from '../components/SectionWrapper'
 
 const socials = [
-  { label: 'Instagram', href: '#' },
-  { label: 'Behance', href: '#' },
-  { label: 'LinkedIn', href: '#' },
+  { label: 'Instagram', href: 'https://www.instagram.com/sid.bagora' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/siddharth-bagora-3aaba0270' },
+  { label: 'WhatsApp', href: 'https://wa.me/918269629303' },
 ]
 
 const Contact = () => {
@@ -86,12 +86,12 @@ const Contact = () => {
             <div className="rounded-[24px] border border-neutral-200 bg-white p-6 shadow-soft">
               <p className="text-sm font-semibold text-neutral-900">Direct line</p>
               <p className="mt-2 text-sm text-neutral-600">Email</p>
-              <a href="mailto:hello@siddharth.studio" className="text-lg font-semibold text-neutral-900">
-                hello@siddharth.studio
+              <a href="mailto:siddharthbagora@gmail.com" className="text-lg font-semibold text-neutral-900">
+                siddharthbagora@gmail.com
               </a>
-              <p className="mt-4 text-sm text-neutral-600">Phone</p>
-              <a href="tel:+919999000000" className="text-lg font-semibold text-neutral-900">
-                +91 9999 000 000
+              <p className="mt-4 text-sm text-neutral-600">Phone / WhatsApp</p>
+              <a href="tel:+918269629303" className="text-lg font-semibold text-neutral-900">
+                +91 82696 29303
               </a>
             </div>
             <div className="rounded-[24px] border border-neutral-200 bg-white p-6 shadow-soft">
