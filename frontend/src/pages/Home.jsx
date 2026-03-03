@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { motion } from 'framer-motion'
 import AnimatedHeading from '../components/AnimatedHeading'
 import Button from '../components/Button'
 import SectionWrapper from '../components/SectionWrapper'
@@ -49,40 +49,33 @@ const Home = () => {
   const isTopActive = hovered === 'top'
   const isBottomActive = hovered === 'bottom'
 
-  const tiltX = useMotionValue(0)
-  const tiltY = useMotionValue(0)
-  const smoothX = useSpring(tiltX, { stiffness: 140, damping: 14 })
-  const smoothY = useSpring(tiltY, { stiffness: 140, damping: 14 })
-
-  const handleTiltMove = e => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const relX = (e.clientX - rect.left) / rect.width - 0.5
-    const relY = (e.clientY - rect.top) / rect.height - 0.5
-    tiltX.set(relX * 30)
-    tiltY.set(relY * 20)
-  }
-
-  const handleTiltLeave = () => {
-    tiltX.set(0)
-    tiltY.set(0)
+  const portraitVariants = {
+    rest: {
+      x: 0,
+      transition: { type: 'spring', stiffness: 140, damping: 16 },
+    },
+    hover: {
+      x: [-16, 16, -12, 12, 0],
+      transition: { duration: 1.8, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' },
+    },
   }
 
   return (
-    <div className="flex flex-col gap-10 bg-transparent">
+    <div className="flex flex-col gap-5 bg-transparent">
       {/* ================= HERO ================= */}
       <SectionWrapper className="py-6">
 
-        <section className="relative flex min-h-screen flex-col items-center justify-center gap-2 overflow-hidden text-center">
-          <p className="relative z-30 text-sm uppercase text-neutral-500  mb-5">
-            👋 My name is Siddharth and I am a freelance designer
+        <section className="relative flex min-h-[80vh] flex-col items-center justify-start gap-2 overflow-hidden px-2 text-center sm:px-0 md:min-h-screen md:pt-10">
+          <p className="relative z-30 text-xs uppercase text-neutral-500 sm:text-sm">
+            👋 My name is Siddharth and I am a freelance photographer
           </p>
           {/* ================= BACKGROUND TYPOGRAPHY ================= */}
-          <div className="absolute inset-0 z-0 flex flex-col items-center justify-center leading-none">
+          <div className="absolute inset-0 z-0 flex flex-col items-center justify-center leading-none -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-[14vw] font-black uppercase tracking-[-0.02em] md:text-[10vw]"
+              className="text-[18vw] font-black uppercase tracking-[-0.02em] sm:text-[14vw] md:text-[12vw] mt-0"
               onMouseEnter={() => setHovered('top')}
               onMouseLeave={() => setHovered(null)}
               style={{
@@ -90,14 +83,14 @@ const Home = () => {
                 transition: 'color 240ms ease',
               }}
             >
-              Webdesigner
+                 EC Engineer
             </motion.h1>
 
             <motion.div
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="flex gap-3 text-[11vw] font-black uppercase tracking-[-0.025em] md:text-[8vw]"
+              className="flex gap-3 text-[15vw] font-black uppercase tracking-[-0.025em] sm:text-[12vw] md:text-[9.5vw]"
               onMouseEnter={() => setHovered('bottom')}
               onMouseLeave={() => setHovered(null)}
             >
@@ -111,7 +104,7 @@ const Home = () => {
                   transition: 'color 240ms ease, -webkit-text-stroke 240ms ease',
                 }}
               >
-                Photographer
+                 Photographer
               </span>
             </motion.div>
           </div>
@@ -121,22 +114,23 @@ const Home = () => {
             initial={{ opacity: 0, y: 40, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative z-20 -mt-16 flex justify-center md:-mt-24"
-            onMouseMove={handleTiltMove}
-            onMouseLeave={handleTiltLeave}
+            className="relative z-20 mt-10 flex justify-center translate-x-5 sm:translate-x-6 md:translate-x-4 sm:mt-12 md:mt-10"
           >
             <motion.img
               src={HeroImg}
               alt="portrait"
-              className="w-[400px] grayscale contrast-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.14)] transition-transform duration-400 sm:w-[500px] md:w-[600px] hover:scale-[1.05]"
-              style={{ x: smoothX, y: smoothY }}
+                className="ml-10 w-full max-w-[320px] grayscale contrast-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.14)] sm:max-w-[440px] md:max-w-[620px]"
+              variants={portraitVariants}
+              initial="rest"
+              animate="rest"
+              whileHover="hover"
             />
           </motion.div>
 
           {/* ================= CONTENT ================= */}
           <div className="relative z-30 mt-8 flex flex-col items-center gap-6">
 
-            <p className="max-w-2xl text-neutral-700">
+            <p className="max-w-2xl px-2 text-neutral-700 sm:px-0">
               based in India.
             </p>
 

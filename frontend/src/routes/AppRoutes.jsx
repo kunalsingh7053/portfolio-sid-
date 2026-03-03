@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import PageTransition from '../components/PageTransition'
@@ -9,6 +10,10 @@ import Skills from '../pages/Skills'
 
 const AppRoutes = () => {
   const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
 
   return (
     <AnimatePresence mode="wait">

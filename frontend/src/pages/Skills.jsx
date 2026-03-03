@@ -2,99 +2,134 @@ import { motion } from 'framer-motion'
 import AnimatedHeading from '../components/AnimatedHeading'
 import SectionWrapper from '../components/SectionWrapper'
 
-const skills = [
-  { name: 'Portrait lighting', level: 92 },
-  { name: 'Editorial direction', level: 88 },
-  { name: 'Color grading', level: 90 },
-  { name: 'Retouch & texture', level: 86 },
-  { name: 'Location scouting', level: 84 },
+/* ---------------- PHOTOGRAPHY ---------------- */
+
+const photographySkills = [
+  'Portrait & Natural Light Photography',
+  'Editorial Storytelling & Visual Direction',
+  'Advanced Color Grading (Lightroom / Capture One)',
+  'Professional Retouching & Skin Texture Control',
+  'Studio Lighting & On-Location Lighting Design',
+  'Creative Composition & Framing',
+  'Client Direction & Shoot Management',
 ]
 
-const equipment = ['Sony A7R IV', 'Zeiss Prime lenses', 'Profoto B10 kit', 'Gitzo traveller tripod', 'Tether tools', 'PolarPro mist filters']
+/* ---------------- ENGINEERING (ECE) ---------------- */
+
+const engineeringSkills = [
+  'PCB Design & Circuit Layout (Analog + Digital)',
+  'Electronics Prototyping & Testing',
+  'Embedded Systems Fundamentals',
+  'Microcontrollers & Hardware Interfacing',
+  'Signal Processing Basics',
+  'Electronic Circuit Analysis & Troubleshooting',
+  'Technical Documentation & System Design',
+]
+
+/* ---------------- WORK PROCESS ---------------- */
 
 const process = [
-  { title: 'Pre-production', copy: 'Story mapping, shot list, light diagrams, location notes.' },
-  { title: 'On-set flow', copy: 'Calm direction, pacing, live grading previews, redundancy backups.' },
-  { title: 'Delivery', copy: 'Color-managed exports, print-ready files, private gallery links.' },
+  {
+    title: 'Concept & Planning',
+    copy:
+      'Understanding requirements, defining objectives, and designing structured workflows for both visual and technical projects.',
+  },
+  {
+    title: 'Execution',
+    copy:
+      'Precision-driven implementation — whether directing a photoshoot or building electronic systems with accuracy and reliability.',
+  },
+  {
+    title: 'Refinement & Delivery',
+    copy:
+      'Careful optimization, testing, and polished final delivery aligned with professional standards.',
+  },
 ]
 
 const Skills = () => {
   return (
     <div className="flex flex-col gap-16 bg-transparent">
+
+      {/* ---------- PHOTOGRAPHY SKILLS ---------- */}
       <SectionWrapper className="space-y-10">
         <AnimatedHeading
-          eyebrow="Capabilities"
-          title="Disciplines and tools refined for premium image-making."
-          description="A blend of technical precision and editorial taste—built to deliver luxurious, consistent visuals on every commission."
+          eyebrow="Photography"
+          title="Visual craft shaped through storytelling and technical precision."
+          description="A balanced approach combining artistic intuition with disciplined production workflows."
         />
-        <div className="grid gap-6 md:grid-cols-2">
-          {skills.map(skill => (
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {photographySkills.map(skill => (
             <motion.div
-              key={skill.name}
-              className="rounded-[22px] border border-neutral-200 bg-white p-4 shadow-soft"
-              initial={{ opacity: 0, y: 10 }}
+              key={skill}
+              className="rounded-[22px] border border-neutral-200 bg-white p-5 shadow-soft"
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="flex items-center justify-between text-sm font-semibold text-neutral-900">
-                <span>{skill.name}</span>
-                <span>{skill.level}%</span>
-              </div>
-              <div className="mt-3 h-2 rounded-full bg-neutral-100">
-                <div
-                  className="h-full rounded-full bg-neutral-900"
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
+              <p className="text-sm font-medium text-neutral-900">
+                {skill}
+              </p>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="space-y-8">
+      {/* ---------- ENGINEERING SKILLS ---------- */}
+      <SectionWrapper className="space-y-10">
         <AnimatedHeading
-          eyebrow="Equipment"
-          title="A curated kit for nimble, detail-rich shoots."
-          description="Lightweight, travel-ready gear that prioritises fidelity, speed, and resilience."
+          eyebrow="Engineering"
+          title="Electronics & Communication engineering capabilities."
+          description="Focused on hardware design, problem solving, and practical implementation of electronic systems."
         />
-        <div className="flex flex-wrap gap-3">
-          {equipment.map(item => (
-            <motion.span
-              key={item}
-              className="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-800 shadow-soft"
-              initial={{ opacity: 0, y: 8 }}
+
+        <div className="grid gap-4 md:grid-cols-2">
+          {engineeringSkills.map(skill => (
+            <motion.div
+              key={skill}
+              className="rounded-[22px] border border-neutral-200 bg-white p-5 shadow-soft"
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.35 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.4 }}
             >
-              {item}
-            </motion.span>
+              <p className="text-sm font-medium text-neutral-900">
+                {skill}
+              </p>
+            </motion.div>
           ))}
         </div>
       </SectionWrapper>
 
+      {/* ---------- PROCESS ---------- */}
       <SectionWrapper className="space-y-8 pb-4">
         <AnimatedHeading
-          eyebrow="Process"
-          title="A timeline that keeps crews aligned and clients relaxed."
+          eyebrow="Workflow"
+          title="A structured approach across creative and technical disciplines."
         />
+
         <div className="grid gap-4 md:grid-cols-3">
           {process.map(step => (
             <motion.div
               key={step.title}
-              className="flex h-full flex-col gap-3 rounded-[22px] border border-neutral-200 bg-white p-5 shadow-soft"
-              initial={{ opacity: 0, y: 10 }}
+              className="flex flex-col gap-3 rounded-[22px] border border-neutral-200 bg-white p-5 shadow-soft"
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.4 }}
             >
-              <p className="text-sm font-semibold text-neutral-900">{step.title}</p>
-              <p className="text-sm text-neutral-600">{step.copy}</p>
+              <p className="text-sm font-semibold text-neutral-900">
+                {step.title}
+              </p>
+              <p className="text-sm text-neutral-600">
+                {step.copy}
+              </p>
             </motion.div>
           ))}
         </div>
       </SectionWrapper>
+
     </div>
   )
 }

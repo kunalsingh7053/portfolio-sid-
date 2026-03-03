@@ -1,98 +1,148 @@
 import { motion } from 'framer-motion'
 import AnimatedHeading from '../components/AnimatedHeading'
-import Button from '../components/Button'
 import SectionWrapper from '../components/SectionWrapper'
-
-const timeline = [
-  { year: '2026', title: 'Art residency, Kyoto', copy: 'Developed a minimalist portrait series focused on quiet rituals and light studies.' },
-  { year: '2024', title: 'Opened studio', copy: 'Built a boutique studio for editorial and product assignments with custom lighting rigs.' },
-  { year: '2022', title: 'Lead photographer, Atelier', copy: 'Led cross-country campaigns blending architecture, design, and portraiture.' },
-]
+import Button from '../components/Button'
+import HeroImg from '../assets/Hero_no_bg.png'
 
 const About = () => {
   return (
-    <div className="flex flex-col gap-16 bg-transparent">
-      <SectionWrapper className="space-y-12">
-        <AnimatedHeading
-          eyebrow="About"
-          title="Siddharth Bagora crafts photographs that feel like held breaths."
-          description="Working across portraits, travel, and editorial spaces, Siddharth pairs disciplined lighting with poetic restraint. Each assignment is treated as a bespoke collaboration—thoughtful pre-production, calm sets, and exacting delivery."
-        />
+    <div className="flex flex-col gap-20 bg-transparent">
 
-        <div className="grid gap-10 md:grid-cols-[1.05fr_0.95fr] md:items-start">
+      {/* ================= HERO INTRO ================= */}
+      <SectionWrapper className="pt-10">
+        <div className="grid items-center gap-12 md:grid-cols-2">
+
+          {/* IMAGE */}
           <motion.div
-            className="overflow-hidden rounded-[28px] border border-neutral-200 bg-white shadow-soft"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.55 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex justify-center"
           >
             <img
-              src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=1600&q=80"
-              alt="Siddharth Bagora"
-              className="h-full w-full object-cover"
-              loading="lazy"
+              src={HeroImg}
+              alt="Siddharth"
+              className="w-full max-w-[420px] grayscale contrast-110 drop-shadow-[0_25px_45px_rgba(0,0,0,0.15)]"
             />
           </motion.div>
+
+          {/* TEXT */}
           <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="space-y-6"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.55, delay: 0.05 }}
           >
-            <p className="text-lg leading-relaxed text-neutral-700">
-              Raised on cinema and long train journeys, Siddharth documents the spaces between moments. His method blends analog-inspired grading with modern retouch, ensuring each frame feels tactile and lived-in. Calm direction, precise light, and an editorial eye keep subjects relaxed and environments elevated.
+            <p className="text-xs uppercase tracking-[0.25em] text-neutral-500">
+              About Me
             </p>
-            <div className="rounded-[22px] border border-neutral-200 bg-white/80 p-5 shadow-soft">
-              <p className="text-sm font-semibold text-neutral-900">Philosophy</p>
-              <p className="mt-2 text-sm text-neutral-600">
-                Minimalism with warmth. Every image is built for longevity—designed to live beautifully in print, galleries, and digital spaces without trend fatigue.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <p className="text-sm font-semibold text-neutral-900">Select clients</p>
-              <div className="flex flex-wrap gap-3 text-sm text-neutral-600">
-                <span className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1">Vogue India</span>
-                <span className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1">Artifact Hotels</span>
-                <span className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1">Nowness</span>
-                <span className="rounded-full border border-neutral-200 bg-neutral-50 px-3 py-1">Kinfolk</span>
-              </div>
-            </div>
-            <div className="pt-3">
-              <Button href="/contact" variant="primary">
-                Schedule a conversation
-              </Button>
-            </div>
+
+            <h2 className="text-3xl font-semibold leading-snug text-neutral-900 md:text-4xl">
+              Electronics & Communication Engineer
+              <br /> and Visual Photographer
+            </h2>
+
+            <p className="text-neutral-600 leading-relaxed">
+              I combine engineering precision with creative storytelling.
+              My background in Electronics & Communication Engineering helps
+              me approach photography with structure, technical accuracy,
+              and problem-solving thinking while maintaining artistic
+              expression.
+            </p>
+
+            <p className="text-neutral-600 leading-relaxed">
+              From designing electronic systems to crafting visual narratives,
+              my work focuses on clarity, minimalism, and meaningful impact.
+              I believe both engineering and photography share one principle —
+              balancing logic with creativity.
+            </p>
+
+            <Button href="/contact" variant="primary">
+              Let's Work Together
+            </Button>
           </motion.div>
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="space-y-8">
+      {/* ================= IDENTITY SECTION ================= */}
+      <SectionWrapper className="space-y-12">
         <AnimatedHeading
-          eyebrow="Trajectory"
-          title="A timeline of craft, residencies, and collaborations."
-          description="A selective view of milestones that shaped the current visual language."
+          eyebrow="Identity"
+          title="Two disciplines. One mindset."
+          description="A fusion of analytical engineering and visual creativity shaping how I build and capture experiences."
         />
-        <div className="grid gap-4">
-          {timeline.map(item => (
-            <motion.div
-              key={item.title}
-              className="flex flex-col gap-3 rounded-[22px] border border-neutral-200 bg-white/85 p-5 shadow-soft sm:flex-row sm:items-center sm:justify-between"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{ duration: 0.4 }}
-            >
-              <div>
-                <p className="text-xs uppercase tracking-[0.24em] text-neutral-500">{item.year}</p>
-                <p className="text-lg font-semibold text-neutral-900">{item.title}</p>
-              </div>
-              <p className="max-w-2xl text-sm text-neutral-600">{item.copy}</p>
-            </motion.div>
-          ))}
+
+        <div className="grid gap-6 md:grid-cols-2">
+
+          {/* ENGINEER */}
+          <motion.div
+            className="rounded-[24px] border border-neutral-200 bg-white p-6 shadow-soft"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-semibold text-neutral-900">
+              Engineering Perspective
+            </h3>
+
+            <ul className="mt-4 space-y-3 text-sm text-neutral-600">
+              <li>• PCB Design & Circuit Development</li>
+              <li>• Embedded Systems Fundamentals</li>
+              <li>• Signal & Communication Concepts</li>
+              <li>• Hardware Troubleshooting</li>
+              <li>• Technical Problem Solving</li>
+              <li>• System Optimization Thinking</li>
+            </ul>
+          </motion.div>
+
+          {/* PHOTOGRAPHER */}
+          <motion.div
+            className="rounded-[24px] border border-neutral-200 bg-white p-6 shadow-soft"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            <h3 className="text-lg font-semibold text-neutral-900">
+              Photography Practice
+            </h3>
+
+            <ul className="mt-4 space-y-3 text-sm text-neutral-600">
+              <li>• Portrait & Lifestyle Photography</li>
+              <li>• Natural & Studio Lighting</li>
+              <li>• Composition & Visual Storytelling</li>
+              <li>• Color Grading & Editing</li>
+              <li>• Creative Direction</li>
+              <li>• Client Collaboration Workflow</li>
+            </ul>
+          </motion.div>
+
         </div>
       </SectionWrapper>
+
+      {/* ================= WORK PHILOSOPHY ================= */}
+      <SectionWrapper className="space-y-10 pb-10">
+        <AnimatedHeading
+          eyebrow="Philosophy"
+          title="Design with logic. Create with emotion."
+        />
+
+        <motion.div
+          className="rounded-[26px] border border-neutral-200 bg-white p-8 shadow-soft text-neutral-600 leading-relaxed"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          My approach is simple — understand deeply before creating.
+          Engineering taught me structure and precision, while photography
+          taught me observation and emotion. Every project I work on aims
+          to balance functionality with aesthetics, ensuring solutions
+          that are both practical and visually meaningful.
+        </motion.div>
+      </SectionWrapper>
+
     </div>
   )
 }
