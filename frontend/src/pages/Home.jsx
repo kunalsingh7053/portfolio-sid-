@@ -67,7 +67,7 @@ const Home = () => {
 
         <section className="relative flex min-h-[80vh] flex-col items-center justify-start gap-3 overflow-hidden px-3 pt-4 text-center sm:px-0 sm:pt-6 md:min-h-screen md:pt-10">
           <p className="relative z-30 text-xs uppercase text-neutral-500 sm:text-sm">
-            👋 My name is Siddharth and I am a freelance photographer
+             My name is Siddharth and I am a freelance photographer
           </p>
           {/* ================= BACKGROUND TYPOGRAPHY ================= */}
           <div className="absolute inset-0 z-0 flex flex-col items-center justify-center leading-none -translate-y-6 sm:-translate-y-10 md:-translate-y-14">
