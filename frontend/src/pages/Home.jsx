@@ -65,17 +65,17 @@ const Home = () => {
       {/* ================= HERO ================= */}
       <SectionWrapper className="py-6">
 
-        <section className="relative flex min-h-[80vh] flex-col items-center justify-start gap-2 overflow-hidden px-2 text-center sm:px-0 md:min-h-screen md:pt-10">
+        <section className="relative flex min-h-[80vh] flex-col items-center justify-start gap-3 overflow-hidden px-3 pt-4 text-center sm:px-0 sm:pt-6 md:min-h-screen md:pt-10">
           <p className="relative z-30 text-xs uppercase text-neutral-500 sm:text-sm">
             👋 My name is Siddharth and I am a freelance photographer
           </p>
           {/* ================= BACKGROUND TYPOGRAPHY ================= */}
-          <div className="absolute inset-0 z-0 flex flex-col items-center justify-center leading-none -translate-y-8 sm:-translate-y-12 md:-translate-y-16">
+          <div className="absolute inset-0 z-0 flex flex-col items-center justify-center leading-none -translate-y-6 sm:-translate-y-10 md:-translate-y-14">
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
-              className="text-[18vw] font-black uppercase tracking-[-0.02em] sm:text-[14vw] md:text-[12vw] mt-0"
+              className="text-[15vw] font-black uppercase tracking-[-0.02em] sm:text-[12vw] md:text-[10vw] mt-0"
               onMouseEnter={() => setHovered('top')}
               onMouseLeave={() => setHovered(null)}
               style={{
@@ -90,7 +90,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 26 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.05 }}
-              className="flex gap-3 text-[15vw] font-black uppercase tracking-[-0.025em] sm:text-[12vw] md:text-[9.5vw]"
+              className="flex gap-3 text-[11vw] font-black uppercase tracking-[-0.025em] sm:text-[10.5vw] md:text-[9vw]"
               onMouseEnter={() => setHovered('bottom')}
               onMouseLeave={() => setHovered(null)}
             >
@@ -114,12 +114,12 @@ const Home = () => {
             initial={{ opacity: 0, y: 40, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative z-20 mt-10 flex justify-center translate-x-5 sm:translate-x-6 md:translate-x-4 sm:mt-12 md:mt-10"
+            className="relative z-20 mt-14 flex justify-center translate-x-2 sm:translate-x-6 md:translate-x-4 sm:mt-12 md:mt-10"
           >
             <motion.img
               src={HeroImg}
               alt="portrait"
-                className="ml-10 w-full max-w-[320px] grayscale contrast-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.14)] sm:max-w-[440px] md:max-w-[620px]"
+                className="w-full max-w-[320px] grayscale contrast-110 drop-shadow-[0_20px_40px_rgba(0,0,0,0.14)] sm:max-w-[440px] md:max-w-[620px]"
               variants={portraitVariants}
               initial="rest"
               animate="rest"
